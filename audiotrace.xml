@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Copyright (c) 2004-2005 Sun Microsystems, Inc. All rights reserved. Use is
+subject to license terms.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the Lesser GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA
+-->
+
+<!--
+  - xscreensaver-style configuration file for this screensaver.
+  -->
+<screensaver name="audiotrace" _label="Audio Trace">
+
+  <command arg="-root"/>
+
+  <command arg="-jar audiotrace.jar"/>
+
+  <command arg="-class org.physci.saver.AudioTrace"/>
+
+  <file id="jdkhome" _label="Java Home (blank=auto)" arg="-jdkhome %" />
+
+<!-- A horizontal group (row) -->
+<hgroup>
+<!-- A vertical group (column) -->
+<vgroup>
+<!-- Default to around half the maximum -->
+<number
+          type="slider"
+          arg="-sampleSize %"
+          _label="Sample Size"
+          _low-label="short"
+          _high-label="long"
+          low="1"
+          high="10"
+          default="5"
+          />
+
+<number
+          type="slider"
+          arg="-fadeRate %"
+          _label="Fade Rate"
+          _low-label="retain"
+          _high-label="clear"
+          low="0"
+          high="100"
+          default="5"
+          />
+</vgroup>
+<vgroup>
+<number
+          type="slider"
+          arg="-scrollStep %"
+          _label="Scroll Step"
+          _low-label="down"
+          _high-label="up"
+          low="-15"
+          high="15"
+          default="15"
+          />
+
+<number
+          type="slider"
+          arg="-zoomStep %"
+          _label="Zoom Step"
+          _low-label="out"
+          _high-label="in"
+          low="-30"
+          high="30"
+          default="30"
+          />
+</vgroup>
+</hgroup>
+
+<boolean _label="Force Mono" arg-set="-mono" />
+
+<hgroup>
+<boolean _label="Lissajous" arg-set="-lissajous" />
+<number
+          type="spinbutton"
+          arg="-xGain %"
+          _label="Gradient Gain"
+          low="1"
+          high="5"
+          default="3"
+          />
+</hgroup>
+
+<select>
+    <option
+            _label="Use options above"
+            />
+    <option
+            _label="Preset - Oscilloscope"
+            arg-set="-prst oscilloscope"
+            />
+    <option
+            _label="Preset - Zoom Off"
+            arg-set="-prst zoom1"
+            />
+    <option
+            _label="Preset - Rolling Hills"
+            arg-set="-prst scroll1"
+            />
+    <option
+            _label="Preset - Trippy"
+            arg-set="-prst trippy1"
+            />
+</select>
+
+<hgroup>
+<!-- Default to 2nd option -->
+<select>
+    <option
+            _label="Trace 1 - Blue"
+            arg-set="-tr1 0000ff"
+            />
+    <option
+            _label="Trace 1 - Pink"
+            />
+    <option
+            _label="Trace 1 - Green"
+            arg-set="-tr1 00ff00"
+            />
+    <option
+            _label="Trace 1 - Yellow"
+            arg-set="-tr1 ffff00"
+            />
+    <option
+            _label="Trace 1 - Red"
+            arg-set="-tr1 ff0000"
+            />
+</select>
+<number
+          type="spinbutton"
+          arg="-r1 %"
+          _label="R"
+          low="0"
+          high="100"
+          default="0"
+          />
+<number
+          type="spinbutton"
+          arg="-g1 %"
+          _label="G"
+          low="0"
+          high="100"
+          default="0"
+          />
+<number
+          type="spinbutton"
+          arg="-b1 %"
+          _label="B"
+          low="0"
+          high="100"
+          default="0"
+          />
+</hgroup>
+
+<hgroup>
+<select>
+    <option
+            _label="Trace 2 - Blue"
+            arg-set="-tr2 0000ff"
+            />
+    <option
+            _label="Trace 2 - Pink"
+            arg-set="-tr2 ff00ff"
+            />
+    <option
+            _label="Trace 2 - Green"
+            />
+    <option
+            _label="Trace 2 - Yellow"
+            arg-set="-tr2 ffff00"
+            />
+    <option
+            _label="Trace 2 - Red"
+            arg-set="-tr2 ff0000"
+            />
+</select>
+<number
+          type="spinbutton"
+          arg="-r2 %"
+          _label="R"
+          low="0"
+          high="100"
+          default="0"
+          />
+<number
+          type="spinbutton"
+          arg="-g2 %"
+          _label="G"
+          low="0"
+          high="100"
+          default="0"
+          />
+<number
+          type="spinbutton"
+          arg="-b2 %"
+          _label="B"
+          low="0"
+          high="100"
+          default="0"
+          />
+</hgroup>
+
+<hgroup>
+<!-- Default to 'true' -->
+<boolean _label="Display All Lines" arg-unset="-allLines" />
+<number
+          type="spinbutton"
+          arg="-lineNo %"
+          _label="Display Line Number"
+          low="1"
+          high="6"
+          default="1"
+          />
+</hgroup>
+
+<hgroup>
+<boolean _label="Iterate Gain" arg-set="-iterateGain" />
+<number
+          type="spinbutton"
+          arg="-gainY %"
+          _label="Default Gain"
+          low="1"
+          high="5"
+          default="1"
+          />
+</hgroup>
+
+<vgroup>
+
+<!-- Text field -->
+<string
+           _label="Enter a string"
+           arg="-SWITCH %"
+           />
+
+<!-- File chooser -->
+<file id="SYMBOLIC NAME"
+        _label="Load presets"
+        arg="-SWITCH %"
+        />
+</vgroup>
+
+<!-- This description includes preformatted text and an URL -->
+<_description>
+AudioTrace saver draws a trace
+of your current sound, with a variety
+of scroll, zoom and fade effects.
+
+The values for Sample Size, Fade Rate, Zoom Step,
+Scroll Step, Force Mono and Lissajous are shown
+in the table.
+
+ Preset  |S|Fd|Zm|Scl|M|L|
+ _________________________
+ Osclsc. |5|95| 0|  0|Y|N|
+ Zoom    |5| 5|30| 15|N|N|
+ Rollng. |5| 5| 2|-10|N|N|
+ Trippy  |1|10|30| 15|N|Y|
+
+For updates, visit &lt;http://www.javasaver.com/&gt;.
+
+By Andrew Thompson.
+</_description>
+</screensaver>
